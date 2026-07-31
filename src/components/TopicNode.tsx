@@ -23,46 +23,49 @@ export function TopicNode({ topic, completed, onToggle, onClick }: TopicNodeProp
   }
 
   return (
-    <div
-      className={`topic-node ${completed ? 'completed' : ''} ${topic.level}`}
-      style={{
-        borderColor: colors.border,
-        backgroundColor: completed ? colors.border + '20' : colors.bg,
-      }}
-      onClick={onClick}
-    >
-      <div className="topic-node-inner">
-        <div
-          className="topic-check"
-          onClick={handleCheckToggle}
-          style={{
-            backgroundColor: completed ? colors.border : 'transparent',
-            borderColor: colors.border,
-          }}
-        >
-          {completed && <span className="checkmark">✓</span>}
-        </div>
-        <div className="topic-content">
-          <h3
-            className="topic-title"
-            style={{ color: completed ? colors.border : colors.text }}
+    <div className="topic-wrapper-full">
+      <div
+        className={`topic-node ${completed ? 'completed' : ''} ${topic.level}`}
+        style={{
+          borderColor: colors.border,
+          backgroundColor: completed ? colors.border + '20' : colors.bg,
+        }}
+        onClick={onClick}
+      >
+        <div className="topic-node-inner">
+          <div
+            className="topic-check"
+            onClick={handleCheckToggle}
+            style={{
+              backgroundColor: completed ? colors.border : 'transparent',
+              borderColor: colors.border,
+            }}
           >
-            {topic.title}
-          </h3>
-          <p className="topic-description">{topic.description}</p>
-          {topic.resources && topic.resources.length > 0 && (
-            <div className="topic-resources-hint">
-              📚 {topic.resources.length} {topic.resources.length === 1 ? 'материал' : topic.resources.length < 5 ? 'материала' : 'материалов'}
-            </div>
-          )}
+            {completed && <span className="checkmark">✓</span>}
+          </div>
+          <div className="topic-content">
+            <h3
+              className="topic-title"
+              style={{ color: completed ? colors.border : colors.text }}
+            >
+              {topic.title}
+            </h3>
+            <p className="topic-description">{topic.description}</p>
+            {topic.resources && topic.resources.length > 0 && (
+              <div className="topic-resources-hint">
+                📚 {topic.resources.length} {topic.resources.length === 1 ? 'материал' : topic.resources.length < 5 ? 'материала' : 'материалов'}
+              </div>
+            )}
+          </div>
         </div>
       </div>
+      
       {topic.prerequisites && topic.prerequisites.length > 0 && (
-        <div className="prerequisites">
-          <span className="prerequisites-label">Пререквизиты:</span>
-          <div className="prerequisites-list">
+        <div className="prerequisites-below">
+          <span className="prerequisites-label-small">Пререквизиты:</span>
+          <div className="prerequisites-list-small">
             {topic.prerequisites.map((prereq) => (
-              <span key={prereq} className="prerequisite-tag">
+              <span key={prereq} className="prerequisite-tag-small">
                 {prereq}
               </span>
             ))}
