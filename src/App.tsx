@@ -3,7 +3,7 @@ import { roadmapData } from './data/roadmapData'
 import { TopicNode } from './components/TopicNode'
 import { Modal } from './components/Modal'
 import { Connector } from './components/Connector'
-import { loadProgress, getCompletionPercentage } from './utils/storage'
+import { loadProgress } from './utils/storage'
 import './App.css'
 import type { Topic } from './types'
 
@@ -34,7 +34,9 @@ function App() {
     setSelectedTopic(null)
   }
 
-  const completionPercentage = getCompletionPercentage(roadmapData)
+  const totalTopics = roadmapData.reduce((sum, cat) => sum + cat.topics.length, 0)
+  const completedCount = Object.values(progress).filter(Boolean).length
+  const completionPercentage = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0
 
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault()

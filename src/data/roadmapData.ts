@@ -13,6 +13,23 @@ export const roadmapData: RoadmapData = [
         completed: false,
         level: 'beginner',
         category: 'basics',
+        resources: [
+          {
+            title: 'Основы C# (Microsoft Learn)',
+            url: 'https://learn.microsoft.com/ru-ru/dotnet/csharp/tutorials/basics-of-csharp',
+            description: 'Начальное руководство Microsoft',
+          },
+          {
+            title: 'Введение в C#',
+            url: 'https://habr.com/ru/articles/484186/',
+            description: 'Подробная статья на Habr',
+          },
+          {
+            title: 'C# First Program (вideo)',
+            url: 'https://www.youtube.com/watch?v=pFJRUsmcAjI',
+            description: 'Видеоурок от freeCodeCamp',
+          },
+        ],
       },
       {
         id: 'variables-types',
