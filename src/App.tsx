@@ -77,9 +77,7 @@ function App() {
                 className="progress-bar"
                 style={{ width: `${completionPercentage}%` }}
               >
-                {completionPercentage > 0 && (
-                  <span className="progress-text">{completionPercentage}%</span>
-                )}
+                <span className="progress-text">{completionPercentage}%</span>
               </div>
             </div>
             <span className="progress-label">Прогресс обучения</span>
