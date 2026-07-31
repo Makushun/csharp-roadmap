@@ -17,6 +17,11 @@ export function TopicNode({ topic, completed, onToggle, onClick }: TopicNodeProp
 
   const colors = levelColors[topic.level]
 
+  const handleCheckToggle = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    onToggle()
+  }
+
   return (
     <div
       className={`topic-node ${completed ? 'completed' : ''} ${topic.level}`}
@@ -24,14 +29,12 @@ export function TopicNode({ topic, completed, onToggle, onClick }: TopicNodeProp
         borderColor: colors.border,
         backgroundColor: completed ? colors.border + '20' : colors.bg,
       }}
+      onClick={onClick}
     >
-      <div className="topic-node-inner" onClick={onClick}>
+      <div className="topic-node-inner">
         <div
           className="topic-check"
-          onClick={(e) => {
-            e.stopPropagation()
-            onToggle()
-          }}
+          onClick={handleCheckToggle}
           style={{
             backgroundColor: completed ? colors.border : 'transparent',
             borderColor: colors.border,
