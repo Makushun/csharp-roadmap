@@ -4,10 +4,11 @@ interface TopicNodeProps {
   topic: Topic
   completed: boolean
   onToggle: () => void
+  onClick: () => void
   row: number
 }
 
-export function TopicNode({ topic, completed, onToggle }: TopicNodeProps) {
+export function TopicNode({ topic, completed, onToggle, onClick }: TopicNodeProps) {
   const levelColors = {
     beginner: { bg: '#dcfce7', border: '#22c55e', text: '#166534' },
     intermediate: { bg: '#fef3c7', border: '#f59e0b', text: '#92400e' },
@@ -23,38 +24,48 @@ export function TopicNode({ topic, completed, onToggle }: TopicNodeProps) {
         borderColor: colors.border,
         backgroundColor: completed ? colors.border + '20' : colors.bg,
       }}
-      onClick={onToggle}
     >
-      <div
-        className="topic-check"
-        style={{
-          backgroundColor: completed ? colors.border : 'transparent',
-          borderColor: colors.border,
-        }}
-      >
-        {completed && <span className="checkmark">✓</span>}
-      </div>
-      <div className="topic-content">
-        <h3
-          className="topic-title"
-          style={{ color: completed ? colors.border : colors.text }}
+      <div className="topic-node-inner" onClick={onClick}>
+        <div
+          className="topic-check"
+          onClick={(e) => {
+            e.stopPropagation()
+            onToggle()
+          }}
+          style={{
+            backgroundColor: completed ? colors.border : 'transparent',
+            borderColor: colors.border,
+          }}
         >
-          {topic.title}
-        </h3>
-        <p className="topic-description">{topic.description}</p>
-        {topic.prerequisites && topic.prerequisites.length > 0 && (
-          <div className="prerequisites">
-            <span className="prerequisites-label">Пререквизиты:</span>
-            <div className="prerequisites-list">
-              {topic.prerequisites.map((prereq) => (
-                <span key={prereq} className="prerequisite-tag">
-                  {prereq}
-                </span>
-              ))}
+          {completed && <span className="checkmark">✓</span>}
+        </div>
+        <div className="topic-content">
+          <h3
+            className="topic-title"
+            style={{ color: completed ? colors.border : colors.text }}
+          >
+            {topic.title}
+          </h3>
+          <p className="topic-description">{topic.description}</p>
+          {topic.resources && topic.resources.length > 0 && (
+            <div className="topic-resources-hint">
+              📚 {topic.resources.length} {topic.resources.length === 1 ? 'материал' : topic.resources.length < 5 ? 'материала' : 'материалов'}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+      {topic.prerequisites && topic.prerequisites.length > 0 && (
+        <div className="prerequisites">
+          <span className="prerequisites-label">Пререквизиты:</span>
+          <div className="prerequisites-list">
+            {topic.prerequisites.map((prereq) => (
+              <span key={prereq} className="prerequisite-tag">
+                {prereq}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

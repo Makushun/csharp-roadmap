@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { roadmapData } from './data/roadmapData'
 import { TopicNode } from './components/TopicNode'
+import { Modal } from './components/Modal'
 import { Connector } from './components/Connector'
 import { loadProgress, getCompletionPercentage } from './utils/storage'
 import './App.css'
+import type { Topic } from './types'
 
 function App() {
   const [progress, setProgress] = useState<Record<string, boolean>>({})
@@ -11,6 +13,7 @@ function App() {
   const [pan, setPan] = useState({ x: 0, y: 0 })
   const [isDragging, setIsDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null)
 
   useEffect(() => {
     setProgress(loadProgress())
@@ -21,6 +24,14 @@ function App() {
     setProgress(newProgress)
     const event = new CustomEvent('topicToggle', { detail: { topicId, completed: !progress[topicId] } })
     window.dispatchEvent(event)
+  }
+
+  const openTopic = (topic: Topic) => {
+    setSelectedTopic(topic)
+  }
+
+  const closeTopic = () => {
+    setSelectedTopic(null)
   }
 
   const completionPercentage = getCompletionPercentage(roadmapData)
@@ -128,6 +139,7 @@ function App() {
                     topic={topic}
                     completed={!!progress[topic.id]}
                     onToggle={() => toggleTopic(topic.id)}
+                    onClick={() => openTopic(topic)}
                     row={topicIndex}
                   />
                   {topicIndex < category.topics.length - 1 && (
@@ -165,6 +177,15 @@ function App() {
           <span>Продвинутый</span>
         </div>
       </div>
+
+      {selectedTopic && (
+        <Modal
+          topic={selectedTopic}
+          completed={!!progress[selectedTopic.id]}
+          onClose={closeTopic}
+          onToggle={() => toggleTopic(selectedTopic.id)}
+        />
+      )}
     </div>
   )
 }

@@ -1,3 +1,9 @@
+export interface Resource {
+  title: string
+  url: string
+  description?: string
+}
+
 export interface Topic {
   id: string
   title: string
@@ -6,6 +12,7 @@ export interface Topic {
   level: 'beginner' | 'intermediate' | 'advanced'
   category: string
   prerequisites?: string[]
+  resources?: Resource[]
 }
 
 export interface Category {

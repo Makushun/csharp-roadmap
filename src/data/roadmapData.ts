@@ -21,6 +21,23 @@ export const roadmapData: RoadmapData = [
         completed: false,
         level: 'beginner',
         category: 'basics',
+        resources: [
+          {
+            title: 'Официальная документация: Переменные и типы',
+            url: 'https://learn.microsoft.com/ru-ru/dotnet/csharp/tutorials/basics-of-csharp/variables',
+            description: 'Официальное руководство Microsoft',
+          },
+          {
+            title: 'Variables and Type Conversion',
+            url: 'https://www.c-sharpcorner.com/UploadFile/4b892a/variables-and-type-conversion-in-C-Sharp/',
+            description: 'Подробная статья на C# Corner',
+          },
+          {
+            title: 'Типы данных в C# (видео)',
+            url: 'https://www.youtube.com/watch?v=5u25KwbZ5sA',
+            description: 'Видеоурок от Tim Corey',
+          },
+        ],
       },
       {
         id: 'control-flow',
@@ -37,6 +54,18 @@ export const roadmapData: RoadmapData = [
         completed: false,
         level: 'beginner',
         category: 'basics',
+        resources: [
+          {
+            title: 'Методы в C# (официальная документация)',
+            url: 'https://learn.microsoft.com/ru-ru/dotnet/csharp/tutorials/basics-of-csharp/methods',
+            description: 'Руководство Microsoft по методам',
+          },
+          {
+            title: 'C# Methods - Tutorial',
+            url: 'https://www.tutorialspoint.com/csharp/csharp_methods.htm',
+            description: 'Практические примеры на Tutorialspoint',
+          },
+        ],
       },
       {
         id: 'arrays-collections',
@@ -45,6 +74,18 @@ export const roadmapData: RoadmapData = [
         completed: false,
         level: 'beginner',
         category: 'basics',
+        resources: [
+          {
+            title: 'Массивы C# (документация)',
+            url: 'https://learn.microsoft.com/ru-ru/dotnet/csharp/tutorials/basics-of-csharp/arrays',
+            description: 'Официальное руководство по массивам',
+          },
+          {
+            title: 'C# Collections Tutorial',
+            url: 'https://www.tutorialspoint.com/csharp/csharp_collections.htm',
+            description: 'Полный обзор коллекций',
+          },
+        ],
       },
     ],
   },
@@ -61,6 +102,18 @@ export const roadmapData: RoadmapData = [
         level: 'intermediate',
         category: 'oop',
         prerequisites: ['syntax-basics', 'variables-types'],
+        resources: [
+          {
+            title: 'Классы и объекты (документация)',
+            url: 'https://learn.microsoft.com/ru-ru/dotnet/csharp/fundamentals/tutorials/classes',
+            description: 'Официальный туториал Microsoft',
+          },
+          {
+            title: 'C# Classes - Complete Guide',
+            url: 'https://www.c-sharpcorner.com/UploadFile/4b892a/classes-and-objects-in-C-Sharp/',
+            description: 'Подробное руководство на C# Corner',
+          },
+        ],
       },
       {
         id: 'inheritance',
@@ -88,6 +141,18 @@ export const roadmapData: RoadmapData = [
         level: 'intermediate',
         category: 'oop',
         prerequisites: ['classes-objects'],
+        resources: [
+          {
+            title: 'Интерфейсы в C# (Microsoft Learn)',
+            url: 'https://learn.microsoft.com/ru-ru/dotnet/csharp/fundamentals/tutorials/interfaces',
+            description: 'Руководство по интерфейсам',
+          },
+          {
+            title: 'C# Interfaces Tutorial',
+            url: 'https://www.tutorialspoint.com/csharp/csharp_interfaces.htm',
+            description: 'Tutorialspoint по интерфейсам',
+          },
+        ],
       },
       {
         id: 'encapsulation',
