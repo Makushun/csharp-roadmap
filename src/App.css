@@ -183,6 +183,19 @@
   cursor: pointer;
 }
 
+.topic-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
 .topic-resources-hint {
   font-size: 0.8rem;
   color: var(--accent-blue);
@@ -218,6 +231,7 @@
 
 .topic-content {
   flex: 1;
+  min-width: 0;
 }
 
 .topic-title {
@@ -225,12 +239,20 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
   line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .topic-description {
   font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .prerequisites {
@@ -260,6 +282,7 @@
   border-radius: 4px;
   color: var(--text-secondary);
   font-family: monospace;
+  word-break: break-word;
 }
 
 .connector {
@@ -557,6 +580,8 @@
   font-weight: 600;
   margin: 0 0 0.25rem 0;
   color: var(--text-primary);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .modal-resource-desc {
