@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Local dist for GitHub Pages (served from /dist folder)
+# For Pages, we commit dist to repo root
+
 # Build output
 dist/
 build/
