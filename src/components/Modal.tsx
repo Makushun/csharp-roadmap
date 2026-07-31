@@ -49,6 +49,9 @@ export function Modal({ topic, completed, onClose, onToggle }: ModalProps) {
             </span>
             <h2>{topic.title}</h2>
           </div>
+        </div>
+
+        <div className="modal-toggle-row" style={{ justifyContent: 'flex-start' }}>
           <button
             className={`modal-toggle-btn ${completed ? 'completed' : ''}`}
             style={{ backgroundColor: completed ? colors.border : 'transparent', borderColor: colors.border }}
