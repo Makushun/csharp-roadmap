@@ -72,13 +72,14 @@ function App() {
             <span className="csharp-logo">C#</span> Roadmap
           </h1>
           <div className="progress-section">
-            <div className="progress-bar-container">
-              <div
-                className="progress-bar"
-                style={{ width: `${completionPercentage}%` }}
-              >
-                <span className="progress-text">{completionPercentage}%</span>
+            <div className="progress-bar-row">
+              <div className="progress-bar-container">
+                <div
+                  className="progress-bar"
+                  style={{ width: `${completionPercentage}%` }}
+                />
               </div>
+              <span className="progress-text">{completionPercentage}%</span>
             </div>
             <span className="progress-label">Прогресс обучения</span>
           </div>

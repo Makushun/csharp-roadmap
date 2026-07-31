@@ -42,8 +42,14 @@
   min-width: 300px;
 }
 
+.progress-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .progress-bar-container {
-  width: 100%;
+  flex: 1;
   height: 24px;
   background: var(--bg-primary);
   border-radius: 12px;
@@ -57,21 +63,15 @@
   background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
   transition: width 0.5s ease;
   border-radius: 10px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 60px;
 }
 
 .progress-text {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: white;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  color: var(--accent-blue);
   white-space: nowrap;
-  position: relative;
-  z-index: 2;
+  min-width: 45px;
+  text-align: right;
 }
 
 .progress-label {
